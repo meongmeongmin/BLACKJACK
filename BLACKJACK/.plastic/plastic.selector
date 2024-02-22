@@ -1,0 +1,4 @@
+repository "BLACKJACK@MeongMeongMin@cloud"
+  path "/"
+    br "/main"
+    co "/main"
