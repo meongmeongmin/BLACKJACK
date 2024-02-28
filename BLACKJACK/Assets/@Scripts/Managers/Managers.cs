@@ -17,8 +17,10 @@ public class Managers : MonoBehaviour
     #region Core
     SceneManagerEX _scene = new SceneManagerEX();
     UIManager _ui = new UIManager();
+    ResourceManager _resource = new ResourceManager();
     public static SceneManagerEX Scene { get { return Instance?._scene; } }
     public static UIManager UI { get { return Instance?._ui; } }
+    public static ResourceManager Resource { get { return Instance?._resource; } }
     #endregion
 
     public static Managers Instance

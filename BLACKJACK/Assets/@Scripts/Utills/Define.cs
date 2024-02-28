@@ -11,6 +11,15 @@ public class Define
         GameplayScene,
     }
 
+    public enum GameState
+    {
+        None,
+        Ready,
+        PlayerTurn,
+        DealerTurn,
+        Ended,
+    }
+
     public enum Chip
     {
         None,
