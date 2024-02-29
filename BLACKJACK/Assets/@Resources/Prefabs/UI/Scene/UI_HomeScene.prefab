@@ -1136,6 +1136,7 @@ GameObject:
   - component: {fileID: 4524511777240678985}
   - component: {fileID: 7107445170368963891}
   - component: {fileID: 3176532937698120417}
+  - component: {fileID: 3219143144253282165}
   m_Layer: 5
   m_Name: UI_HomeScene
   m_TagString: Untagged
@@ -1229,6 +1230,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3219143144253282165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705994306643870359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad2cd82ba9c5534fb16ca3468506fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewGameButton: {fileID: 0}
+  ContinueButton: {fileID: 0}
+  RankingsAndChallengesButton: {fileID: 0}
+  SettingButton: {fileID: 0}
 --- !u!1 &8850869511436536457
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,12 +18,12 @@ public class ResourceManager
         return null;
     }
 
-    public GameObject Instantiate(string key, Transform parent = null, bool pooling = false)
+    public GameObject Instantiate(string key, Transform parent = null)
     {
         GameObject prefab = Load<GameObject>($"{key}");
         if (prefab == null)
         {
-            Debug.Log($"Failed to load prefab : {key}");
+            Debug.LogError($"Failed to load prefab : {key}");
             return null;
         }
 
@@ -72,7 +72,7 @@ public class ResourceManager
                 LoadAsync<T>(result.PrimaryKey, (obj) =>
                 {
                     loadCount++;
-                    callback?.Invoke(result.PrimaryKey, totalCount, loadCount);
+                    callback?.Invoke(result.PrimaryKey, loadCount, totalCount);
                 });
             }
         };

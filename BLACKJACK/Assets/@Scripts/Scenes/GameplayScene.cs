@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomeScene : BaseScene
+public class GameplayScene : BaseScene
 {
     private void Start()
     {
@@ -11,9 +11,9 @@ public class HomeScene : BaseScene
 
     protected override void Init()
     {
-        Screen.orientation = ScreenOrientation.Portrait;
-        SceneType = Define.Scene.HomeScene;
-        Debug.Log("HomeScene");
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneType = Define.Scene.GameplayScene;
+        Debug.Log("GameplayScene");
     }
 
     protected override void Clear()
@@ -21,4 +21,3 @@ public class HomeScene : BaseScene
 
     }
 }
-

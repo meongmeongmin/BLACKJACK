@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Define
 {
+    public enum UIEvent
+    {
+        Click,
+        Pressed,
+    }
+
     public enum Scene
     {
         Unknown,
@@ -13,7 +19,6 @@ public class Define
 
     public enum GameState
     {
-        None,
         Ready,
         PlayerTurn,
         DealerTurn,
@@ -27,5 +32,13 @@ public class Define
         Chip50 = 50,
         Chip100 = 100,
         Chip500 = 500,
+    }
+
+    public enum CardType
+    {
+        Spade,
+        Heart,
+        Diamond,
+        Clover,
     }
 }
