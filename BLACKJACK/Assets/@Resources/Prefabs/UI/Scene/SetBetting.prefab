@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 677395489507899188}
   - component: {fileID: 9161193055698184215}
   m_Layer: 5
-  m_Name: SetrBetting
+  m_Name: SetBetting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

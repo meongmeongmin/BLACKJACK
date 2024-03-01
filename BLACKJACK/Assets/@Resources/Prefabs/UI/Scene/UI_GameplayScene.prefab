@@ -2368,7 +2368,7 @@ RectTransform:
   - {fileID: 7740583576358553188}
   - {fileID: 6013116414355152430}
   - {fileID: 8285912223520277313}
-  - {fileID: 7457508347334384400}
+  - {fileID: 4784790194746364139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2461,7 +2461,7 @@ MonoBehaviour:
   PlayButton: {fileID: 0}
   CardDeckButton: []
   GoldText: {fileID: 0}
-  UI_SetBetting: {fileID: 0}
+  SetBetting: {fileID: 0}
 --- !u!1 &5905494434964598360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,7 +3997,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &7933358815153597476
+--- !u!1001 &5404436990641891295
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4087,15 +4087,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594687509775016423, guid: a3f282faf1ef2314b9468eeda2a2fd45, type: 3}
       propertyPath: m_Name
-      value: SetrBetting
+      value: SetBetting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3f282faf1ef2314b9468eeda2a2fd45, type: 3}
---- !u!224 &7457508347334384400 stripped
+--- !u!224 &4784790194746364139 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 677395489507899188, guid: a3f282faf1ef2314b9468eeda2a2fd45, type: 3}
-  m_PrefabInstance: {fileID: 7933358815153597476}
+  m_PrefabInstance: {fileID: 5404436990641891295}
   m_PrefabAsset: {fileID: 0}
