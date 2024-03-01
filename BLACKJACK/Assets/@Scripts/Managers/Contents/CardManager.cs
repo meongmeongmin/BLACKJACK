@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Card
 {
-    public string Type;
+    public string Suit;
     public int Score;
 }
 
@@ -28,13 +28,13 @@ public class CardManager
     public void GenerateAllCard()
     {
         // 카드 생성
-        string[] types = new string[] { "Spade", "Heart", "Diamond", "Clover" };
+        string[] suits = new string[] { "Spade", "Heart", "Diamond", "Clover" };
         List<Card> cards = new List<Card>();
-        foreach (string type in types)
+        foreach (string suit in suits)
         {
             for (int i = 1; i < 14; i++)
             {
-                cards[i - 1].Type = type;
+                cards[i - 1].Suit = suit;
                 cards[i].Score = i;
             }
         }

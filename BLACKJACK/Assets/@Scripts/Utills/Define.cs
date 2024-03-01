@@ -28,13 +28,13 @@ public class Define
     public enum Chip
     {
         None,
-        Chip10 = 10,
-        Chip50 = 50,
-        Chip100 = 100,
-        Chip500 = 500,
+        Chip10 = 10000,
+        Chip50 = 50000,
+        Chip100 = 100000,
+        Chip500 = 500000,
     }
 
-    public enum CardType
+    public enum CardSuit
     {
         Spade,
         Heart,
