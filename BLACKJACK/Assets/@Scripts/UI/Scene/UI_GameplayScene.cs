@@ -19,7 +19,7 @@ public class UI_GameplayScene : UI_Base
     // 텍스트
     public TextMeshPro GoldText;
     // 게임 오브젝트
-    public GameObject SetPlayerBetting;
+    public GameObject SetBetting;
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class UI_GameplayScene : UI_Base
         // Gold
         GoldText = GameObject.Find("GoldText").GetComponent<TextMeshPro>();
         // Set Betting
-        SetPlayerBetting = GameObject.Find("SetPlayerBetting");
+        SetBetting = GameObject.Find("SetrBetting");   // 나중에 UIManager을 응용할 것.
         // Chip
         Chip10Button = GameObject.Find("Chip10Button").GetComponent<Button>();
         Chip50Button = GameObject.Find("Chip50Button").GetComponent<Button>();
