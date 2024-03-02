@@ -8,10 +8,10 @@ public class ChipCommand : ICommand
     private Chip _chip;
     private PlayerControllers _player;
 
-    public ChipCommand(Chip chip)
+    public ChipCommand(PlayerControllers player, Chip chip)
     {
+        _player = player;
         _chip = chip;
-        _player = Managers.Game.Player;
     }
 
     public void Execute()

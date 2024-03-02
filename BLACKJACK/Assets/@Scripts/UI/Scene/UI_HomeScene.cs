@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_HomeScene : UI_Base
+public class UI_HomeScene : UI_Scene
 {
     public Button NewGameButton;
     public Button ContinueButton;
@@ -28,7 +28,7 @@ public class UI_HomeScene : UI_Base
         NewGameButton.onClick.AddListener(OnClickNewGameButton);
     }
 
-    public void OnClickNewGameButton()
+    private void OnClickNewGameButton()
     {
         Managers.Scene.LoadScene(Define.Scene.GameplayScene);
     }

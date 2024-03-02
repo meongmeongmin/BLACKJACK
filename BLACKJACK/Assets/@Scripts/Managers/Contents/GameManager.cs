@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GameManager
 {
-    public PlayerControllers Player { get; set; } = new PlayerControllers();
+    public PlayerControllers Player { get; set; }
 }

@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4624475916827716357}
   - component: {fileID: 3438247339488489261}
   m_Layer: 5
-  m_Name: CardDeckButton
+  m_Name: CardDeckButton_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 8528315119149915591}
   - component: {fileID: 4332532522075115861}
   m_Layer: 5
-  m_Name: Layout
+  m_Name: CardDeckGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 1625401137822930426}
   - component: {fileID: 4942298937077932885}
   m_Layer: 5
-  m_Name: CardDeckButton
+  m_Name: CardDeckButton_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 5041032448520671779}
   - component: {fileID: 3647010829466351436}
   m_Layer: 5
-  m_Name: CardDeckButton
+  m_Name: CardDeckButton_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1170,7 +1170,7 @@ GameObject:
   - component: {fileID: 1201386923494355659}
   - component: {fileID: 8370259518999285523}
   m_Layer: 5
-  m_Name: Layout
+  m_Name: CardDeckGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1729,7 +1729,7 @@ GameObject:
   - component: {fileID: 8348328834739580272}
   - component: {fileID: 6272786078818835728}
   m_Layer: 5
-  m_Name: CardDeckButton
+  m_Name: CardDeckButton_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1869,7 +1869,7 @@ GameObject:
   - component: {fileID: 1836083405997270295}
   - component: {fileID: 168160977306085565}
   m_Layer: 5
-  m_Name: Layout
+  m_Name: CardDeckGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2458,7 +2458,7 @@ GameObject:
   - component: {fileID: 1661254423497871633}
   - component: {fileID: 5160416006345302785}
   m_Layer: 5
-  m_Name: Layout
+  m_Name: CardDeckGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2525,7 +2525,7 @@ GameObject:
   - component: {fileID: 347999763566636420}
   - component: {fileID: 1165590835554903261}
   m_Layer: 5
-  m_Name: CardDeckButton
+  m_Name: CardDeckButton_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3590,7 +3590,7 @@ GameObject:
   - component: {fileID: 4118878593330485361}
   - component: {fileID: 140974237621283166}
   m_Layer: 5
-  m_Name: Layout
+  m_Name: CardDeckGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 216937663674450034, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
+      propertyPath: m_Name
+      value: CardDeckButton_1
+      objectReference: {fileID: 0}
     - target: {fileID: 738266580007919508, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -366,6 +370,10 @@ PrefabInstance:
     - target: {fileID: 738266580007919508, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 841750105758486870, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
+      propertyPath: m_Name
+      value: CardDeckButton_2
       objectReference: {fileID: 0}
     - target: {fileID: 1071161705325365003, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
       propertyPath: m_Pivot.x
@@ -526,6 +534,10 @@ PrefabInstance:
     - target: {fileID: 2833199827375026556, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057221905142003955, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
+      propertyPath: m_Name
+      value: CardDeckButton_3
       objectReference: {fileID: 0}
     - target: {fileID: 3397473936121484399, guid: 6bd6c5ee05fa46741bea6832b43297c8, type: 3}
       propertyPath: m_AnchorMax.y
