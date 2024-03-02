@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static Define;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -53,13 +54,8 @@ public class UI_GameplayScene : UI_Scene
         Bind<GameObject>(typeof(GameObjects));
         Bind<Button>(typeof(Buttons));
         Bind<TMP_Text>(typeof(Texts));
-        Get<TMP_Text>((int)Texts.GoldText).text = "Test";
 
-        // 커맨드 연결
-        var chip10Command = new ChipCommand(_player, Chip.Chip10);
-        var chip50Command = new ChipCommand(_player, Chip.Chip50);
-        var chip100Command = new ChipCommand(_player, Chip.Chip100);
-        var chip500Command = new ChipCommand(_player, Chip.Chip500);
+        BindEvent(Get<Button>((int)Buttons.HomeButton).gameObject, OnHomeButtonClick, null, UIEvent.Click);
     }
 
     public void UpdateGoldText(float text)

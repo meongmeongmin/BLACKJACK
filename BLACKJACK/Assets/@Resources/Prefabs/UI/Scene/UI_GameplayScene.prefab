@@ -2436,17 +2436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59894d95ae166844489517531b0b5065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HomeButton: {fileID: 0}
-  MenuButton: {fileID: 0}
-  Chip10Button: {fileID: 0}
-  Chip50Button: {fileID: 0}
-  Chip100Button: {fileID: 0}
-  Chip500Button: {fileID: 0}
-  ClearChipButton: {fileID: 0}
-  PlayButton: {fileID: 0}
-  CardDeckButton: []
-  GoldText: {fileID: 0}
-  SetBetting: {fileID: 0}
 --- !u!1 &5905494434964598360
 GameObject:
   m_ObjectHideFlags: 0
