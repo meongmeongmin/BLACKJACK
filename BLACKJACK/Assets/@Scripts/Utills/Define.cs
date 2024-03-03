@@ -27,7 +27,7 @@ public class Define
 
     public enum Chip
     {
-        None,
+        None = 0,
         Chip10 = 10000,
         Chip50 = 50000,
         Chip100 = 100000,

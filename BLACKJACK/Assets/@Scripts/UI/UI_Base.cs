@@ -34,6 +34,11 @@ public abstract class UI_Base : MonoBehaviour
         }
     }
 
+    protected void BindObejct(Type type) { Bind<GameObject>(type); }
+    protected void BindButton(Type type) { Bind<Button>(type); }
+    protected void BindText(Type type) { Bind<TMP_Text>(type); }
+    protected void BindImage(Type type) { Bind<Image>(type); }
+
     protected T Get<T>(int idx) where T : UnityEngine.Object
     {
         UnityEngine.Object[] objects = null;
@@ -42,6 +47,11 @@ public abstract class UI_Base : MonoBehaviour
 
         return objects[idx] as T;
     }
+
+    protected GameObject GetObejct(int idx) { return Get<GameObject>(idx); }
+    protected Button GetButton(int idx) { return Get<Button>(idx); }
+    protected TMP_Text GetText(int idx) { return Get<TMP_Text>(idx); }
+    protected Image GetImage(int idx) { return Get<Image>(idx); }
 
     public static void BindEvent(GameObject go, Action action = null, Action<BaseEventData> dragAction = null, Define.UIEvent type = Define.UIEvent.Click)
     {
