@@ -13,7 +13,7 @@ public class CardDeck
 {
     public List<Card> Cards;
     public int Bet;
-    public string CardDeckID;
+    public bool isSelect = false;
 }
 
 public class CardManager
@@ -28,7 +28,7 @@ public class CardManager
     public void GenerateAllCard()
     {
         // 카드 생성
-        string[] suits = new string[] { "Spade", "Heart", "Diamond", "Clover" };
+        string[] suits = Enum.GetNames(typeof(Define.CardSuit));
         List<Card> cards = new List<Card>();
         foreach (string suit in suits)
         {

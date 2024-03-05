@@ -1,15 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Define;
 
 public class UI_HomeScene : UI_Scene
 {
-    public Button NewGameButton;
-    public Button ContinueButton;
-    public Button RankingsAndChallengesButton;
-    public Button SettingButton;
+    enum Buttons
+    {
+        NewGameButton,
+        ContinueButton,
+        RankingsAndChallengesButton,
+        SettingButton,
+    }
+
+    bool isPreload = false;
 
     private void Start()
     {
@@ -20,16 +25,40 @@ public class UI_HomeScene : UI_Scene
     {
         base.Init();
 
-        NewGameButton = GameObject.Find("NewGameButton").GetComponent<Button>();
-        ContinueButton = GameObject.Find("ContinueButton").GetComponent<Button>();
-        RankingsAndChallengesButton = GameObject.Find("RankingsAndChallengesButton").GetComponent<Button>();
-        SettingButton = GameObject.Find("SettingButton").GetComponent<Button>();
+        BindButton(typeof(Buttons));
+
+        BindEvent(GetButton((int)Buttons.NewGameButton).gameObject, OnNewGameButtonClick);
+        BindEvent(GetButton((int)Buttons.ContinueButton).gameObject, OnContinueButtonClick);
+        BindEvent(GetButton((int)Buttons.RankingsAndChallengesButton).gameObject, OnRankingsAndChallengesButtonClick);
+        BindEvent(GetButton((int)Buttons.SettingButton).gameObject, OnSettingButtonClick);
         
-        NewGameButton.onClick.AddListener(OnClickNewGameButton);
+        Managers.Resource.LoadAllAsync<Object>("PreLoad", (key, count, totalCount) =>
+        {
+            if (count == totalCount) 
+            {
+                isPreload = true;
+            }
+        });
     }
 
-    private void OnClickNewGameButton()
+    private void OnNewGameButtonClick()
     {
-        Managers.Scene.LoadScene(Define.Scene.GameplayScene);
+        Managers.Scene.LoadScene(Scene.GameplayScene);
+    }
+
+    private void OnContinueButtonClick()
+    {
+        // 게임 데이터 불러오기
+        Managers.Scene.LoadScene(Scene.GameplayScene);
+    }
+
+    private void OnRankingsAndChallengesButtonClick()
+    {
+
+    }
+
+    private void OnSettingButtonClick() 
+    {
+
     }
 }

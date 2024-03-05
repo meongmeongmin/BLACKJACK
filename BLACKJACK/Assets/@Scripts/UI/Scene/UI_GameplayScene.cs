@@ -39,7 +39,7 @@ public class UI_GameplayScene : UI_Scene
 
     enum Images
     {
-
+        SelectCardDeckIconImage,
     }
     #endregion
 
