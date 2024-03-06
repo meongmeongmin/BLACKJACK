@@ -54,6 +54,7 @@ public class UI_GameplayScene : UI_Scene
     {
         base.Init();
 
+
         _player = new PlayerControllers();
 
         BindObejct(typeof(GameObjects));
