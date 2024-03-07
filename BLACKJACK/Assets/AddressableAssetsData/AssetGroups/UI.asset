@@ -30,7 +30,7 @@ MonoBehaviour:
     - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24a60338f0a5d194f9e07ddd664d7ed2
-    m_Address: UI/EventSystem
+    m_Address: EventSystem
     m_ReadOnly: 0
     m_SerializedLabels:
     - PreLoad

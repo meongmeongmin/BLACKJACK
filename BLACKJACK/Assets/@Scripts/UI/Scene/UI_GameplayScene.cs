@@ -45,7 +45,7 @@ public class UI_GameplayScene : UI_Scene
 
     private PlayerControllers _player;
 
-    void Start()
+    private void Start()
     {
         Init();
     }
@@ -54,15 +54,14 @@ public class UI_GameplayScene : UI_Scene
     {
         base.Init();
 
-
         _player = new PlayerControllers();
 
+        #region 바인딩
         BindObejct(typeof(GameObjects));
         BindButton(typeof(Buttons));
         BindText(typeof(Texts));
         BindImage(typeof(Images));
 
-        #region 버튼 이벤트 바인딩
         BindEvent(Get<Button>((int)Buttons.HomeButton).gameObject, OnHomeButtonClick);
         BindEvent(Get<Button>((int)Buttons.MenuButton).gameObject, OnMenuButtonClick);
         BindEvent(Get<Button>((int)Buttons.Chip10Button).gameObject, () => { OnChipButtonClick(Chip.Chip10); } );
@@ -86,7 +85,7 @@ public class UI_GameplayScene : UI_Scene
 
     public void OnMenuButtonClick()
     {
-        // Menu UI 팝업 로직
+        Managers.UI.ShowPopupUI<UI_MenuPopup>();
     }
 
     public void OnChipButtonClick(Chip chip)

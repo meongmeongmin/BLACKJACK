@@ -25,13 +25,15 @@ public class UI_HomeScene : UI_Scene
     {
         base.Init();
 
+        #region ¹ÙÀÎµù
         BindButton(typeof(Buttons));
 
         BindEvent(GetButton((int)Buttons.NewGameButton).gameObject, OnNewGameButtonClick);
         BindEvent(GetButton((int)Buttons.ContinueButton).gameObject, OnContinueButtonClick);
         BindEvent(GetButton((int)Buttons.RankingsAndChallengesButton).gameObject, OnRankingsAndChallengesButtonClick);
         BindEvent(GetButton((int)Buttons.SettingButton).gameObject, OnSettingButtonClick);
-        
+        #endregion
+
         Managers.Resource.LoadAllAsync<Object>("PreLoad", (key, count, totalCount) =>
         {
             if (count == totalCount) 

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager
 {
-    int _order = 0;
+    int _order = 10;
 
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>(); 
     UI_Scene _sceneUI = null;
@@ -23,7 +25,31 @@ public class UIManager
 
     public void SetCanvas(GameObject go, bool sort = true)
     {
+        Canvas canvas = Util.GetOrAddComponent<Canvas>(go);
+        if (canvas == null)
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.overrideSorting = true;
+        }
 
+        CanvasScaler cs = go.GetOrAddComponent<CanvasScaler>();
+        if (cs != null)
+        {
+            cs.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            cs.referenceResolution = new Vector2(1080, 1920);
+        }
+
+        go.GetOrAddComponent<GraphicRaycaster>();
+
+        if (sort)
+        {
+            canvas.sortingOrder = _order;
+            _order++;
+        }
+        else
+        {
+            canvas.sortingOrder = 0;
+        }
     }
     
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene
@@ -48,6 +74,9 @@ public class UIManager
         GameObject go = Managers.Resource.Instantiate($"{name}");
         T popup = Util.GetOrAddComponent<T>(go);
         _popupStack.Push(popup);
+
+        go.transform.SetParent(Root.transform);
+
         return popup;
     }
 
