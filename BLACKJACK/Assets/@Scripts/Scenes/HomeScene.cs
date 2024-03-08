@@ -13,7 +13,6 @@ public class HomeScene : BaseScene
     {
         Screen.orientation = ScreenOrientation.Portrait;
         SceneType = Define.Scene.HomeScene;
-        Debug.Log("HomeScene");
     }
 
     protected override void Clear()

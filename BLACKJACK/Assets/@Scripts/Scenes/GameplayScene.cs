@@ -14,7 +14,6 @@ public class GameplayScene : BaseScene
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneType = Define.Scene.GameplayScene;
         Managers.UI.ShowSceneUI<UI_GameplayScene>();
-        Debug.Log("GameplayScene");
     }
 
     protected override void Clear()
