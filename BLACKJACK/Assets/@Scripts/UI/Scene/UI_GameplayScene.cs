@@ -70,25 +70,25 @@ public class UI_GameplayScene : UI_Scene
         BindEvent(Get<Button>((int)Buttons.Chip500Button).gameObject, () => { OnChipButtonClick(Chip.Chip500); } );
         BindEvent(Get<Button>((int)Buttons.ClearChipButton).gameObject, () => { OnChipButtonClick(Chip.None); });
         BindEvent(Get<Button>((int)Buttons.PlayButton).gameObject, OnPlayButtonClick);
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_1).gameObject, OnCardDeckButtonClick);
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_2).gameObject, OnCardDeckButtonClick);
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_3).gameObject, OnCardDeckButtonClick);
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_4).gameObject, OnCardDeckButtonClick);
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_5).gameObject, OnCardDeckButtonClick);
+        BindEvent(Get<Button>((int)Buttons.CardDeckButton_1).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_1); });
+        BindEvent(Get<Button>((int)Buttons.CardDeckButton_2).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_2); });
+        BindEvent(Get<Button>((int)Buttons.CardDeckButton_3).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_3); });
+        BindEvent(Get<Button>((int)Buttons.CardDeckButton_4).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_4); });
+        BindEvent(Get<Button>((int)Buttons.CardDeckButton_5).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_5); });
         #endregion
     }
 
-    public void OnHomeButtonClick()
+    private void OnHomeButtonClick()
     {
         Managers.Scene.LoadScene(Scene.HomeScene);
     }
 
-    public void OnMenuButtonClick()
+    private void OnMenuButtonClick()
     {
         Managers.UI.ShowPopupUI<UI_MenuPopup>();
     }
 
-    public void OnChipButtonClick(Chip chip)
+    private void OnChipButtonClick(Chip chip)
     {
         switch (chip)
         {
@@ -112,13 +112,16 @@ public class UI_GameplayScene : UI_Scene
         GetText((int)Texts.GoldText).text = _player.playerInfo.Gold.ToString();
     }
 
-    public void OnPlayButtonClick()
+    private void OnPlayButtonClick()
     {
         GetObejct((int)GameObjects.SetBetting).SetActive(false);
     }
 
-    public void OnCardDeckButtonClick()
+    private void OnCardDeckButtonClick(Buttons button)
     {
+        switch (button)
+        {
 
+        }
     }
 }
