@@ -13,7 +13,24 @@ public class PlayerInfo
 
 public class PlayerControllers
 {
-    public PlayerInfo playerInfo = new PlayerInfo();
+    public PlayerInfo PlayerInfo = new PlayerInfo();
+    private int _currentCardDeckIdx;
+
+    public void Init()
+    {
+        PlayerInfo.Gold = 100000;
+        PlayerInfo.CardDecks = new List<CardDeck>();
+        PlayerInfo.CardDecks.Add(new CardDeck());
+        PlayerInfo.CardDecks.Add(new CardDeck());
+        PlayerInfo.CardDecks.Add(new CardDeck());
+        PlayerInfo.CardDecks.Add(new CardDeck());
+        PlayerInfo.CardDecks.Add(new CardDeck());
+    }
+
+    public void SelectCardDeck(int cardDeckIdx)
+    {
+        _currentCardDeckIdx = cardDeckIdx;
+    }
 
     public void Bet(Chip chip)
     {
@@ -21,17 +38,17 @@ public class PlayerControllers
         {
             Debug.Log("Clear");
             // CardDecks 인덱스에 대한 로직 추가할 것. 이것은 임시적으로 테스트용
-            //playerInfo.Gold += playerInfo.CardDecks[0].Bet * 1000;
-            //playerInfo.CardDecks[0].Bet = 0;
+            PlayerInfo.Gold += PlayerInfo.CardDecks[_currentCardDeckIdx].Bet * 1000;
+            PlayerInfo.CardDecks[_currentCardDeckIdx].Bet = 0;
             return;
         }
 
         Debug.Log("Bet");
-        if (playerInfo.Gold >= (int)chip)
+        if (PlayerInfo.Gold >= (int)chip)
         {
-            playerInfo.Gold -= (int)chip;
+            PlayerInfo.Gold -= (int)chip;
             // CardDecks 인덱스에 대한 로직 추가할 것. 이것은 임시적으로 테스트용
-            //playerInfo.CardDecks[0].Bet = (int)chip / 1000;
+            PlayerInfo.CardDecks[_currentCardDeckIdx].Bet += (int)chip / 1000;
         }
     }
 

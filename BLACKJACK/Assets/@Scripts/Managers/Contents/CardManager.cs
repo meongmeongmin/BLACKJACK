@@ -6,13 +6,14 @@ using UnityEngine;
 public class Card
 {
     public string Suit;
-    public int Score;
+    public int Number;
 }
 
 public class CardDeck
 {
-    public List<Card> Cards;
+    public List<Card> Cards = new List<Card>();
     public int Bet;
+    public int Score;
     public bool isSelect = false;
 }
 
@@ -35,7 +36,7 @@ public class CardManager
             for (int i = 1; i < 14; i++)
             {
                 cards[i - 1].Suit = suit;
-                cards[i].Score = i;
+                cards[i].Number = i;
             }
         }
 

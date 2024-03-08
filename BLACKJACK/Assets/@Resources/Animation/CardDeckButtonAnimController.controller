@@ -110,10 +110,10 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 1
     script: {fileID: 0}
-    flags: 16
+    flags: 0
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -123,7 +123,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2100487274
+      path: 357665568
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -170,10 +170,10 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 1
     script: {fileID: 0}
-    flags: 16
+    flags: 0
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
@@ -372,31 +372,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Selected
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Disabled
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Pressed
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Highlighted
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -521,7 +521,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -549,7 +549,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -562,7 +562,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2100487274
+      path: 357665568
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -571,7 +571,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2100487274
+      path: 357665568
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -627,7 +627,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -666,7 +666,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -705,7 +705,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -744,7 +744,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -786,10 +786,10 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 1
     script: {fileID: 0}
-    flags: 16
+    flags: 0
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -799,7 +799,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2100487274
+      path: 357665568
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -846,10 +846,10 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: SelectCardDeckIconImage
+    path: SelectCardDeckIconImage_1
     classID: 1
     script: {fileID: 0}
-    flags: 16
+    flags: 0
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
