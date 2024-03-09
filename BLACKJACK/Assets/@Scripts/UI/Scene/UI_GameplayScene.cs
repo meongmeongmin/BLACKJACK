@@ -26,11 +26,15 @@ public class UI_GameplayScene : UI_Scene
         Chip500Button,
         ClearChipButton,
         PlayButton,
-        CardDeckButton_1,
-        CardDeckButton_2,
-        CardDeckButton_3,
-        CardDeckButton_4,
-        CardDeckButton_5,
+    }
+
+    enum Toggles
+    {
+        CardDeckToggle_1,
+        CardDeckToggle_2,
+        CardDeckToggle_3,
+        CardDeckToggle_4,
+        CardDeckToggle_5,
     }
 
     enum Texts
@@ -70,6 +74,7 @@ public class UI_GameplayScene : UI_Scene
         #region 바인딩
         BindObejct(typeof(GameObjects));
         BindButton(typeof(Buttons));
+        BindToggle(typeof(Toggles));
         BindText(typeof(Texts));
         BindImage(typeof(Images));
 
@@ -82,22 +87,15 @@ public class UI_GameplayScene : UI_Scene
         BindEvent(Get<Button>((int)Buttons.Chip500Button).gameObject, () => { OnChipButtonClick(Chip.Chip500); });
         BindEvent(Get<Button>((int)Buttons.ClearChipButton).gameObject, () => { OnChipButtonClick(Chip.None); });
         BindEvent(Get<Button>((int)Buttons.PlayButton).gameObject, OnPlayButtonClick);
-        // 카드덱 버튼
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_1).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_1); });
-        GetButton((int)Buttons.CardDeckButton_1).GetOrAddComponent<UI_CardDeckButtonAnimation>();
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_2).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_2); });
-        GetButton((int)Buttons.CardDeckButton_2).GetOrAddComponent<UI_CardDeckButtonAnimation>();
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_3).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_3); });
-        GetButton((int)Buttons.CardDeckButton_3).GetOrAddComponent<UI_CardDeckButtonAnimation>();
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_4).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_4); });
-        GetButton((int)Buttons.CardDeckButton_4).GetOrAddComponent<UI_CardDeckButtonAnimation>();
-        BindEvent(Get<Button>((int)Buttons.CardDeckButton_5).gameObject, () => { OnCardDeckButtonClick(Buttons.CardDeckButton_5); });
-        GetButton((int)Buttons.CardDeckButton_5).GetOrAddComponent<UI_CardDeckButtonAnimation>();
+        // 카드덱 토글
+        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_1).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_1); });
+        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_2).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_2); });
+        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_3).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_3); });
+        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_4).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_4); });
+        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_5).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_5); });
         #endregion
 
         // 수정 필요, 아무것도 선택을 안 했을 때(처음 화면), 0번째 인덱스 카드덱을 자동으로 선택하고 SelectCardDeckIconImage_1 애니메이션을 활성화
-        DeactivateAllSelectCardDeckIcon();
-        GetImage((int)Images.SelectCardDeckIconImage_1).gameObject.SetActive(true);
         _player.SelectCardDeck(0);
 
         Refresh();
@@ -111,15 +109,6 @@ public class UI_GameplayScene : UI_Scene
         GetText((int)Texts.BetText_3).text = _player.PlayerInfo.CardDecks[2].Bet.ToString();
         GetText((int)Texts.BetText_4).text = _player.PlayerInfo.CardDecks[3].Bet.ToString();
         GetText((int)Texts.BetText_5).text = _player.PlayerInfo.CardDecks[4].Bet.ToString();
-    }
-
-    private void DeactivateAllSelectCardDeckIcon()
-    {
-        GetImage((int)Images.SelectCardDeckIconImage_1).gameObject.SetActive(false);
-        GetImage((int)Images.SelectCardDeckIconImage_2).gameObject.SetActive(false);
-        GetImage((int)Images.SelectCardDeckIconImage_3).gameObject.SetActive(false);
-        GetImage((int)Images.SelectCardDeckIconImage_4).gameObject.SetActive(false);
-        GetImage((int)Images.SelectCardDeckIconImage_5).gameObject.SetActive(false);
     }
 
     #region 버튼 클릭 이벤트
@@ -161,26 +150,26 @@ public class UI_GameplayScene : UI_Scene
     {
         GetObejct((int)GameObjects.SetBetting).SetActive(false);
     }
+    #endregion
 
-    private void OnCardDeckButtonClick(Buttons button)
+    #region 토글 클릭 이벤트
+    private void OnCardDeckToggleClick(Toggles toggle)
     {
-        DeactivateAllSelectCardDeckIcon();
-
-        switch (button)
+        switch (toggle)
         {
-            case Buttons.CardDeckButton_1:
+            case Toggles.CardDeckToggle_1:
                 _player.SelectCardDeck(0);
                 break;
-            case Buttons.CardDeckButton_2:
+            case Toggles.CardDeckToggle_2:
                 _player.SelectCardDeck(1);
                 break;
-            case Buttons.CardDeckButton_3:
+            case Toggles.CardDeckToggle_3:
                 _player.SelectCardDeck(2);
                 break;
-            case Buttons.CardDeckButton_4:
+            case Toggles.CardDeckToggle_4:
                 _player.SelectCardDeck(3);
                 break;
-            case Buttons.CardDeckButton_5:
+            case Toggles.CardDeckToggle_5:
                 _player.SelectCardDeck(4);
                 break;
         }

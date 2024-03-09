@@ -29,15 +29,12 @@ public class PlayerControllers
 
     public void SelectCardDeck(int cardDeckIdx)
     {
-        if (_currentCardDeckIdx != cardDeckIdx)
-            PlayerInfo.CardDecks[_currentCardDeckIdx].IsSelect = false;
-
         _currentCardDeckIdx = cardDeckIdx;
-        PlayerInfo.CardDecks[_currentCardDeckIdx].IsSelect = true;
     }
 
     public void Bet(Chip chip)
     {
+        Debug.Log(_currentCardDeckIdx);
         if (chip == Chip.None)
         {
             Debug.Log("Clear");

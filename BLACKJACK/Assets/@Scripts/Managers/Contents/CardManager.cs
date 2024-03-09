@@ -15,7 +15,6 @@ public class CardDeck
     public List<Card> Cards = new List<Card>();
     public int Bet;
     public int Score;
-    public bool IsSelect = false;
 }
 
 public class CardManager

@@ -36,6 +36,7 @@ public abstract class UI_Base : MonoBehaviour
 
     protected void BindObejct(Type type) { Bind<GameObject>(type); }
     protected void BindButton(Type type) { Bind<Button>(type); }
+    protected void BindToggle(Type type) { Bind<Toggle>(type); }
     protected void BindText(Type type) { Bind<TMP_Text>(type); }
     protected void BindImage(Type type) { Bind<Image>(type); }
 
