@@ -29,7 +29,11 @@ public class PlayerControllers
 
     public void SelectCardDeck(int cardDeckIdx)
     {
+        if (_currentCardDeckIdx != cardDeckIdx)
+            PlayerInfo.CardDecks[_currentCardDeckIdx].IsSelect = false;
+
         _currentCardDeckIdx = cardDeckIdx;
+        PlayerInfo.CardDecks[_currentCardDeckIdx].IsSelect = true;
     }
 
     public void Bet(Chip chip)
@@ -37,7 +41,6 @@ public class PlayerControllers
         if (chip == Chip.None)
         {
             Debug.Log("Clear");
-            // CardDecks 인덱스에 대한 로직 추가할 것. 이것은 임시적으로 테스트용
             PlayerInfo.Gold += PlayerInfo.CardDecks[_currentCardDeckIdx].Bet * 1000;
             PlayerInfo.CardDecks[_currentCardDeckIdx].Bet = 0;
             return;
@@ -47,7 +50,6 @@ public class PlayerControllers
         if (PlayerInfo.Gold >= (int)chip)
         {
             PlayerInfo.Gold -= (int)chip;
-            // CardDecks 인덱스에 대한 로직 추가할 것. 이것은 임시적으로 테스트용
             PlayerInfo.CardDecks[_currentCardDeckIdx].Bet += (int)chip / 1000;
         }
     }

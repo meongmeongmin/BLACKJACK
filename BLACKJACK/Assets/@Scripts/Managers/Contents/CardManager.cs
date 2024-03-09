@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Card
@@ -14,7 +15,7 @@ public class CardDeck
     public List<Card> Cards = new List<Card>();
     public int Bet;
     public int Score;
-    public bool isSelect = false;
+    public bool IsSelect = false;
 }
 
 public class CardManager

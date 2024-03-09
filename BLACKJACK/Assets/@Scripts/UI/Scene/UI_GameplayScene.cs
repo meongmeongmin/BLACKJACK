@@ -76,10 +76,10 @@ public class UI_GameplayScene : UI_Scene
         BindEvent(Get<Button>((int)Buttons.HomeButton).gameObject, OnHomeButtonClick);
         BindEvent(Get<Button>((int)Buttons.MenuButton).gameObject, OnMenuButtonClick);
         // SetBetting의 버튼
-        BindEvent(Get<Button>((int)Buttons.Chip10Button).gameObject, () => { OnChipButtonClick(Chip.Chip10); } );
-        BindEvent(Get<Button>((int)Buttons.Chip50Button).gameObject, () => { OnChipButtonClick(Chip.Chip50); } );
-        BindEvent(Get<Button>((int)Buttons.Chip100Button).gameObject, () => { OnChipButtonClick(Chip.Chip100); } );
-        BindEvent(Get<Button>((int)Buttons.Chip500Button).gameObject, () => { OnChipButtonClick(Chip.Chip500); } );
+        BindEvent(Get<Button>((int)Buttons.Chip10Button).gameObject, () => { OnChipButtonClick(Chip.Chip10); });
+        BindEvent(Get<Button>((int)Buttons.Chip50Button).gameObject, () => { OnChipButtonClick(Chip.Chip50); });
+        BindEvent(Get<Button>((int)Buttons.Chip100Button).gameObject, () => { OnChipButtonClick(Chip.Chip100); });
+        BindEvent(Get<Button>((int)Buttons.Chip500Button).gameObject, () => { OnChipButtonClick(Chip.Chip500); });
         BindEvent(Get<Button>((int)Buttons.ClearChipButton).gameObject, () => { OnChipButtonClick(Chip.None); });
         BindEvent(Get<Button>((int)Buttons.PlayButton).gameObject, OnPlayButtonClick);
         // 카드덱 버튼
@@ -95,14 +95,10 @@ public class UI_GameplayScene : UI_Scene
         GetButton((int)Buttons.CardDeckButton_5).GetOrAddComponent<UI_CardDeckButtonAnimation>();
         #endregion
 
-        _player.SelectCardDeck(0);
-        
-        // 테스트용 수정이 필요함
+        // 수정 필요, 아무것도 선택을 안 했을 때(처음 화면), 0번째 인덱스 카드덱을 자동으로 선택하고 SelectCardDeckIconImage_1 애니메이션을 활성화
+        DeactivateAllSelectCardDeckIcon();
         GetImage((int)Images.SelectCardDeckIconImage_1).gameObject.SetActive(true);
-        GetImage((int)Images.SelectCardDeckIconImage_2).gameObject.SetActive(false);
-        GetImage((int)Images.SelectCardDeckIconImage_3).gameObject.SetActive(false);
-        GetImage((int)Images.SelectCardDeckIconImage_4).gameObject.SetActive(false);
-        GetImage((int)Images.SelectCardDeckIconImage_5).gameObject.SetActive(false);
+        _player.SelectCardDeck(0);
 
         Refresh();
     }
@@ -115,6 +111,15 @@ public class UI_GameplayScene : UI_Scene
         GetText((int)Texts.BetText_3).text = _player.PlayerInfo.CardDecks[2].Bet.ToString();
         GetText((int)Texts.BetText_4).text = _player.PlayerInfo.CardDecks[3].Bet.ToString();
         GetText((int)Texts.BetText_5).text = _player.PlayerInfo.CardDecks[4].Bet.ToString();
+    }
+
+    private void DeactivateAllSelectCardDeckIcon()
+    {
+        GetImage((int)Images.SelectCardDeckIconImage_1).gameObject.SetActive(false);
+        GetImage((int)Images.SelectCardDeckIconImage_2).gameObject.SetActive(false);
+        GetImage((int)Images.SelectCardDeckIconImage_3).gameObject.SetActive(false);
+        GetImage((int)Images.SelectCardDeckIconImage_4).gameObject.SetActive(false);
+        GetImage((int)Images.SelectCardDeckIconImage_5).gameObject.SetActive(false);
     }
 
     #region 버튼 클릭 이벤트
@@ -159,6 +164,8 @@ public class UI_GameplayScene : UI_Scene
 
     private void OnCardDeckButtonClick(Buttons button)
     {
+        DeactivateAllSelectCardDeckIcon();
+
         switch (button)
         {
             case Buttons.CardDeckButton_1:

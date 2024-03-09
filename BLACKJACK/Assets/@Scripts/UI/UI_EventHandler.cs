@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UI_EventHandler : MonoBehaviour, IPointerClickHandler,IDragHandler, IBeginDragHandler, IEndDragHandler
+public class UI_EventHandler : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public Action OnClickHandler = null;
     public Action<BaseEventData> OnDragHandler = null;
