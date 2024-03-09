@@ -1,0 +1,367 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CardSprites
+  m_EditorClassIdentifier: 
+  m_GroupName: CardSprites
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f0879d2ef25f28d4898b167ec420883c
+  m_SerializeEntries:
+  - m_GUID: 35b1aa564e0affa44b391cd24c36727c
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/BackColor_Black.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0802620b3a2859f45bdd189c7bc35d02
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/BackColor_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b5edfaa43a45d342b122c301a8184e0
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/BackColor_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56b480213ded30244b28e72660856365
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club01.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2a5726b287996745aacff7b182a521d
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club02.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9302d42f098e67c41a201e19aa1d27d0
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club03.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a99f39bc317efcf4aae469b213d0d163
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club04.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0e626a1e8e53a14e908b9c98e23b8f6
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club05.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e4fef354a531d446b72020d5125348d
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club06.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bcb19d93a016e94f93a7e2fac280bed
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club07.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 626366a4a0c7bca4084306eb5489123b
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club08.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d4efa847b2131947bb10e09e044efcc
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club09.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80a0d0770e8bb9f4ba714d5c5e782039
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club10.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb01a0c0319df854aa13366f4e1528a1
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club11.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a6e3c6c40df41940ad2fb925fb0688c
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club12.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2d0ba18f8b024a49a61be93bf9c89c0
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Club13.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b941cb9883cb6d438d5ddf89cd51b69
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond01.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77202bde798ef9241a53716b210fbd4e
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond02.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c223be1206095424885b1e1f058c1cf0
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond03.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dd21bd4dee823b43b4a9d0eb3ea9825
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond04.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d87ecc733e1090e44ab67b3fdde3c4bf
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond05.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7911eba35b428243b3ac55d2f0ae830
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond06.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd33bc056f8a8474893abf3c5ac74730
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond07.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8423e4f3a72eff947aaffe2339fe204e
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond08.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d810e281c1872648ad0c32733e27da7
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond09.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8da3770ed794a2440b5b91acc6d4cede
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond10.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62863de8fae47df4eadce3b755692c94
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond11.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4defcbd668b2bd9488ef72feb0bfd967
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond12.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9995266bb01ab64a856a46cc0e0534c
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Diamond13.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3555e813e8cf67545908b0ac5a5834af
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart01.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dfedddf2799c7b4d82bed3b2f9bd03c
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart02.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5537e23e6fdde94db19f34a73419df4
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart03.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a885f25a9c7fea43a86646f6a5eaa5f
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart04.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c915f806d6d09845b4cc77519f902d7
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart05.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0902e26d89d447b4a8a85c382159f4e7
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart06.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3999b7b63c9674419fc367b508440f9
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart07.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccd65c16639c0954caf8f278f1d7ba93
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart08.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ef19fb98bce74a48b277d5ac36ababc
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart09.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6561daa10eb56e944b19b882914ba2ad
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart10.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06584b76fb55b1b49a50ce8440ba18f9
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart11.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aac1d237a2ccd044b81768861f7730c5
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart12.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a310aaba26b180419909c4d90017b38
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Heart13.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21ca70266aebc054ba04bee60d93082f
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Joker_Color.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 417418e8fde0fb446bc48e778da635aa
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Joker_Monochrome.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f068beb6338e31243afd5b1a3ed6604f
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade01.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99f10cb705af6b348a812c1ab511d0ce
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade02.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8523d4368d550a947a1c3cb4168ed9ff
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade03.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b52a4d2a4cc48d45bc0c270ebffc24b
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade04.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02a559c0b6c879d4297056cef79f941b
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade05.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a15298c71266594086136f6121ae454
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade06.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07517454cd8e340429110b2e89533e3a
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade07.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da6a082efa6b6694f92fad9442f30fa9
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade08.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78998314942cf794786a837260fddeeb
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade09.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 397fcc769693d0747ac7c79d662555d9
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade10.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 523bc81d4f12c154594d9134dfd85f4f
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade11.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bc0a39dce7af2d40b541dddf4ed86dc
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade12.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c1a6354d1d441c4e97d432a7edc557c
+    m_Address: Assets/@Resources/Sprites/UI/Card/PlayingCards/Spade13.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 85d573e189eab2848a237c109c496751, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 452a75ab985b6a04288f394d7f99fd72, type: 2}
+    - {fileID: 11400000, guid: 8bff2a6591275a64da2e0f402fef834d, type: 2}
