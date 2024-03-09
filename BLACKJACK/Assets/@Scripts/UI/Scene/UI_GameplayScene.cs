@@ -103,12 +103,21 @@ public class UI_GameplayScene : UI_Scene
 
     private void Refresh()
     {
+        // 골드 텍스트
         GetText((int)Texts.GoldText).text = _player.PlayerInfo.Gold.ToString();
+        // 배팅 텍스트
         GetText((int)Texts.BetText_1).text = _player.PlayerInfo.CardDecks[0].Bet.ToString();
         GetText((int)Texts.BetText_2).text = _player.PlayerInfo.CardDecks[1].Bet.ToString();
         GetText((int)Texts.BetText_3).text = _player.PlayerInfo.CardDecks[2].Bet.ToString();
         GetText((int)Texts.BetText_4).text = _player.PlayerInfo.CardDecks[3].Bet.ToString();
         GetText((int)Texts.BetText_5).text = _player.PlayerInfo.CardDecks[4].Bet.ToString();
+        // Chip 버튼
+        Get<Button>((int)Buttons.Chip10Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip10;
+        Get<Button>((int)Buttons.Chip50Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip50;
+        Get<Button>((int)Buttons.Chip100Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip100;
+        Get<Button>((int)Buttons.Chip500Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip500;
+        // Play 버튼
+        Get<Button>((int)Buttons.PlayButton).interactable = _player.PlayerInfo.TotalBet > 0;
     }
 
     #region 버튼 클릭 이벤트
@@ -148,7 +157,8 @@ public class UI_GameplayScene : UI_Scene
 
     private void OnPlayButtonClick()
     {
-        GetObejct((int)GameObjects.SetBetting).SetActive(false);
+        if (_player.PlayerInfo.TotalBet > 0)
+            GetObejct((int)GameObjects.SetBetting).SetActive(false);
     }
     #endregion
 

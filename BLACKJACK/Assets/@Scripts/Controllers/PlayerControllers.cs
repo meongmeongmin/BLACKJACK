@@ -8,7 +8,8 @@ using static Define;
 public class PlayerInfo
 {
     public float Gold;
-    public List<CardDeck> CardDecks;    // player은 5개의 카드덱을 가진다.
+    public float TotalBet;  // 배팅한 총 금액
+    public List<CardDeck> CardDecks;    // player는 5개의 카드덱을 가진다.
 }
 
 public class PlayerControllers
@@ -34,19 +35,20 @@ public class PlayerControllers
 
     public void Bet(Chip chip)
     {
-        Debug.Log(_currentCardDeckIdx);
         if (chip == Chip.None)
         {
             Debug.Log("Clear");
             PlayerInfo.Gold += PlayerInfo.CardDecks[_currentCardDeckIdx].Bet * 1000;
+            PlayerInfo.TotalBet -= PlayerInfo.CardDecks[_currentCardDeckIdx].Bet;
             PlayerInfo.CardDecks[_currentCardDeckIdx].Bet = 0;
             return;
         }
 
-        Debug.Log("Bet");
         if (PlayerInfo.Gold >= (int)chip)
         {
+            Debug.Log("Bet");
             PlayerInfo.Gold -= (int)chip;
+            PlayerInfo.TotalBet += (int)chip / 1000;
             PlayerInfo.CardDecks[_currentCardDeckIdx].Bet += (int)chip / 1000;
         }
     }
