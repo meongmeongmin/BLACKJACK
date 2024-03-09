@@ -14,6 +14,7 @@ public class UI_GameplayScene : UI_Scene
     enum GameObjects
     {
         SetBetting,
+        SetPlaying,
     }
 
     enum Buttons
@@ -87,6 +88,8 @@ public class UI_GameplayScene : UI_Scene
         BindEvent(Get<Button>((int)Buttons.Chip500Button).gameObject, () => { OnChipButtonClick(Chip.Chip500); });
         BindEvent(Get<Button>((int)Buttons.ClearChipButton).gameObject, () => { OnChipButtonClick(Chip.None); });
         BindEvent(Get<Button>((int)Buttons.PlayButton).gameObject, OnPlayButtonClick);
+        // SetPlaying의 버튼
+
         // 카드덱 토글
         BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_1).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_1); });
         BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_2).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_2); });
@@ -97,6 +100,8 @@ public class UI_GameplayScene : UI_Scene
 
         // 수정 필요, 아무것도 선택을 안 했을 때(처음 화면), 0번째 인덱스 카드덱을 자동으로 선택하고 SelectCardDeckIconImage_1 애니메이션을 활성화
         _player.SelectCardDeck(0);
+        GetObejct((int)GameObjects.SetBetting).gameObject.SetActive(true);
+        GetObejct((int)GameObjects.SetPlaying).gameObject.SetActive(false);
 
         Refresh();
     }
@@ -158,7 +163,10 @@ public class UI_GameplayScene : UI_Scene
     private void OnPlayButtonClick()
     {
         if (_player.PlayerInfo.TotalBet > 0)
+        {
             GetObejct((int)GameObjects.SetBetting).SetActive(false);
+            GetObejct((int)GameObjects.SetPlaying).gameObject.SetActive(true);
+        }
     }
     #endregion
 
