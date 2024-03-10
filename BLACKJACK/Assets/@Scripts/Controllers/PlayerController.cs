@@ -12,7 +12,14 @@ public class PlayerInfo
     public List<CardDeck> CardDecks;    // player는 5개의 카드덱을 가진다.
 }
 
-public class PlayerControllers
+[Serializable]
+public class DealerInfo
+{
+    public List<Card> Cards;
+    public int Score;
+}
+
+public class PlayerController
 {
     public PlayerInfo PlayerInfo = new PlayerInfo();
     private int _currentCardDeckIdx;
@@ -64,6 +71,11 @@ public class PlayerControllers
     }
 
     public void DoubleDown()
+    {
+
+    }
+
+    public void Split() 
     {
 
     }
