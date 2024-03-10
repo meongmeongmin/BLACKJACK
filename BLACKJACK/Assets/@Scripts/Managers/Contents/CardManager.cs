@@ -13,7 +13,7 @@ public class Card
 public class CardDeck
 {
     public List<Card> Cards = new List<Card>();
-    public int Bet;
+    public float Bet;
     public int Score;
 }
 
