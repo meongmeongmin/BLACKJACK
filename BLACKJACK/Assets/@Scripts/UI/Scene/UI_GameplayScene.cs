@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,6 +28,11 @@ public class UI_GameplayScene : UI_Scene
         Chip500Button,
         ClearChipButton,
         PlayButton,
+        HitButton,
+        StandButton,
+        DoubledownButton,
+        SplitButton,
+        SurrenderButton,
     }
 
     enum Toggles
@@ -46,6 +52,12 @@ public class UI_GameplayScene : UI_Scene
         BetText_3,
         BetText_4,
         BetText_5,
+        ScoreText_1,
+        ScoreText_2,
+        ScoreText_3,
+        ScoreText_4,
+        ScoreText_5,
+        DealerScoreText,
     }
 
     enum Images
@@ -55,21 +67,30 @@ public class UI_GameplayScene : UI_Scene
         SelectCardDeckIconImage_3,
         SelectCardDeckIconImage_4,
         SelectCardDeckIconImage_5,
+        ScoreImage_1,
+        ScoreImage_2,
+        ScoreImage_3,
+        ScoreImage_4,
+        ScoreImage_5,
     }
     #endregion
 
-    private PlayerControllers _player;
+    private PlayerController _player;
+    private DealerInfo _dealer;
 
     private void Start()
     {
+        Debug.Log(MethodBase.GetCurrentMethod().Name);
         Init();
+        Refresh();
     }
 
     public override void Init()
     {
         base.Init();
 
-        _player = new PlayerControllers();
+        _player = new PlayerController();
+        _dealer = new DealerInfo();
         _player.Init();
 
         #region 바인딩
@@ -79,31 +100,38 @@ public class UI_GameplayScene : UI_Scene
         BindText(typeof(Texts));
         BindImage(typeof(Images));
 
-        BindEvent(Get<Button>((int)Buttons.HomeButton).gameObject, OnHomeButtonClick);
-        BindEvent(Get<Button>((int)Buttons.MenuButton).gameObject, OnMenuButtonClick);
+        BindEvent(GetButton((int)Buttons.HomeButton).gameObject, OnClickHomeButton);
+        BindEvent(GetButton((int)Buttons.MenuButton).gameObject, OnClickMenuButton);
         // SetBetting의 버튼
-        BindEvent(Get<Button>((int)Buttons.Chip10Button).gameObject, () => { OnChipButtonClick(Chip.Chip10); });
-        BindEvent(Get<Button>((int)Buttons.Chip50Button).gameObject, () => { OnChipButtonClick(Chip.Chip50); });
-        BindEvent(Get<Button>((int)Buttons.Chip100Button).gameObject, () => { OnChipButtonClick(Chip.Chip100); });
-        BindEvent(Get<Button>((int)Buttons.Chip500Button).gameObject, () => { OnChipButtonClick(Chip.Chip500); });
-        BindEvent(Get<Button>((int)Buttons.ClearChipButton).gameObject, () => { OnChipButtonClick(Chip.None); });
-        BindEvent(Get<Button>((int)Buttons.PlayButton).gameObject, OnPlayButtonClick);
+        BindEvent(GetButton((int)Buttons.Chip10Button).gameObject, () => { OnClickChipButton(Chip.Chip10); });
+        BindEvent(GetButton((int)Buttons.Chip50Button).gameObject, () => { OnClickChipButton(Chip.Chip50); });
+        BindEvent(GetButton((int)Buttons.Chip100Button).gameObject, () => { OnClickChipButton(Chip.Chip100); });
+        BindEvent(GetButton((int)Buttons.Chip500Button).gameObject, () => { OnClickChipButton(Chip.Chip500); });
+        BindEvent(GetButton((int)Buttons.ClearChipButton).gameObject, () => { OnClickChipButton(Chip.None); });
+        BindEvent(GetButton((int)Buttons.PlayButton).gameObject, OnClickPlayButton);
         // SetPlaying의 버튼
-
+        BindEvent(GetButton((int)Buttons.HitButton).gameObject, OnClickHitButton);
+        BindEvent(GetButton((int)Buttons.StandButton).gameObject, OnClickStandButton);
+        BindEvent(GetButton((int)Buttons.DoubledownButton).gameObject, OnClickDoubledownButton);
+        BindEvent(GetButton((int)Buttons.SplitButton).gameObject, OnClickSplitButton);
+        BindEvent(GetButton((int)Buttons.SurrenderButton).gameObject, OnClickSurrenderButton);
         // 카드덱 토글
-        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_1).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_1); });
-        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_2).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_2); });
-        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_3).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_3); });
-        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_4).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_4); });
-        BindEvent(Get<Toggle>((int)Toggles.CardDeckToggle_5).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_5); });
+        BindEvent(GetToggle((int)Toggles.CardDeckToggle_1).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_1); });
+        BindEvent(GetToggle((int)Toggles.CardDeckToggle_2).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_2); });
+        BindEvent(GetToggle((int)Toggles.CardDeckToggle_3).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_3); });
+        BindEvent(GetToggle((int)Toggles.CardDeckToggle_4).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_4); });
+        BindEvent(GetToggle((int)Toggles.CardDeckToggle_5).gameObject, () => { OnCardDeckToggleClick(Toggles.CardDeckToggle_5); });
         #endregion
 
         // 수정 필요, 아무것도 선택을 안 했을 때(처음 화면), 0번째 인덱스 카드덱을 자동으로 선택하고 SelectCardDeckIconImage_1 애니메이션을 활성화
         _player.SelectCardDeck(0);
         GetObejct((int)GameObjects.SetBetting).gameObject.SetActive(true);
         GetObejct((int)GameObjects.SetPlaying).gameObject.SetActive(false);
-
-        Refresh();
+        GetImage((int)Images.ScoreImage_1).gameObject.SetActive(false);
+        GetImage((int)Images.ScoreImage_2).gameObject.SetActive(false);
+        GetImage((int)Images.ScoreImage_3).gameObject.SetActive(false);
+        GetImage((int)Images.ScoreImage_4).gameObject.SetActive(false);
+        GetImage((int)Images.ScoreImage_5).gameObject.SetActive(false);
     }
 
     private void Refresh()
@@ -116,27 +144,33 @@ public class UI_GameplayScene : UI_Scene
         GetText((int)Texts.BetText_3).text = _player.PlayerInfo.CardDecks[2].Bet.ToString();
         GetText((int)Texts.BetText_4).text = _player.PlayerInfo.CardDecks[3].Bet.ToString();
         GetText((int)Texts.BetText_5).text = _player.PlayerInfo.CardDecks[4].Bet.ToString();
+        // 점수 텍스트
+        GetText((int)Texts.ScoreText_1).text = _player.PlayerInfo.CardDecks[0].Score.ToString();
+        GetText((int)Texts.ScoreText_2).text = _player.PlayerInfo.CardDecks[1].Score.ToString();
+        GetText((int)Texts.ScoreText_3).text = _player.PlayerInfo.CardDecks[2].Score.ToString();
+        GetText((int)Texts.ScoreText_4).text = _player.PlayerInfo.CardDecks[3].Score.ToString();
+        GetText((int)Texts.ScoreText_5).text = _player.PlayerInfo.CardDecks[4].Score.ToString();
         // Chip 버튼
-        Get<Button>((int)Buttons.Chip10Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip10;
-        Get<Button>((int)Buttons.Chip50Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip50;
-        Get<Button>((int)Buttons.Chip100Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip100;
-        Get<Button>((int)Buttons.Chip500Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip500;
+        GetButton((int)Buttons.Chip10Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip10;
+        GetButton((int)Buttons.Chip50Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip50;
+        GetButton((int)Buttons.Chip100Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip100;
+        GetButton((int)Buttons.Chip500Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip500;
         // Play 버튼
-        Get<Button>((int)Buttons.PlayButton).interactable = _player.PlayerInfo.TotalBet > 0;
+        GetButton((int)Buttons.PlayButton).interactable = _player.PlayerInfo.TotalBet > 0;
     }
 
     #region 버튼 클릭 이벤트
-    private void OnHomeButtonClick()
+    private void OnClickHomeButton()
     {
         Managers.Scene.LoadScene(Scene.HomeScene);
     }
 
-    private void OnMenuButtonClick()
+    private void OnClickMenuButton()
     {
         Managers.UI.ShowPopupUI<UI_MenuPopup>();
     }
 
-    private void OnChipButtonClick(Chip chip)
+    private void OnClickChipButton(Chip chip)
     {
         switch (chip)
         {
@@ -160,13 +194,43 @@ public class UI_GameplayScene : UI_Scene
         Refresh();
     }
 
-    private void OnPlayButtonClick()
+    private void OnClickPlayButton()
     {
         if (_player.PlayerInfo.TotalBet > 0)
         {
             GetObejct((int)GameObjects.SetBetting).SetActive(false);
             GetObejct((int)GameObjects.SetPlaying).gameObject.SetActive(true);
+            GetImage((int)Images.ScoreImage_1).gameObject.SetActive(true);
+            GetImage((int)Images.ScoreImage_2).gameObject.SetActive(true);
+            GetImage((int)Images.ScoreImage_3).gameObject.SetActive(true);
+            GetImage((int)Images.ScoreImage_4).gameObject.SetActive(true);
+            GetImage((int)Images.ScoreImage_5).gameObject.SetActive(true);
         }
+    }
+
+    private void OnClickHitButton()
+    {
+        _player.Hit();
+    }
+
+    private void OnClickStandButton()
+    {
+        _player.Stand();
+    }
+
+    private void OnClickDoubledownButton()
+    {
+        _player.DoubleDown();
+    }
+
+    private void OnClickSplitButton()
+    {
+        _player.Split();
+    }
+
+    private void OnClickSurrenderButton()
+    {
+        _player.Surrender();
     }
     #endregion
 

@@ -51,6 +51,7 @@ public abstract class UI_Base : MonoBehaviour
 
     protected GameObject GetObejct(int idx) { return Get<GameObject>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
+    protected Toggle GetToggle(int idx) { return Get<Toggle>(idx); }
     protected TMP_Text GetText(int idx) { return Get<TMP_Text>(idx); }
     protected Image GetImage(int idx) { return Get<Image>(idx); }
 
