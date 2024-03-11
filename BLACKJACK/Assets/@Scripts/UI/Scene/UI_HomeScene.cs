@@ -21,9 +21,10 @@ public class UI_HomeScene : UI_Scene
         Init();
     }
 
-    public override void Init()
+    public override bool Init()
     {
-        base.Init();
+        if (base.Init() == false)
+            return false;
 
         #region ¹ÙÀÎµù
         BindButton(typeof(Buttons));
@@ -41,6 +42,8 @@ public class UI_HomeScene : UI_Scene
                 isPreload = true;
             }
         });
+
+        return true;
     }
 
     private void OnNewGameButtonClick()

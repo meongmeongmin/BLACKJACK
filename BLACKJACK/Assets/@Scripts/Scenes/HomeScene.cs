@@ -11,6 +11,7 @@ public class HomeScene : BaseScene
 
     protected override void Init()
     {
+        base.Init();
         Screen.orientation = ScreenOrientation.Portrait;
         SceneType = Define.Scene.HomeScene;
     }

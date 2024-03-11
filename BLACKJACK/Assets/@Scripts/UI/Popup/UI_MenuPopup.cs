@@ -26,9 +26,10 @@ public class UI_MenuPopup : UI_Popup
         Init();
     }
 
-    public override void Init()
+    public override bool Init()
     {
-        base.Init();
+        if (base.Init() == false)
+            return false;
 
         #region ¹ÙÀÎµù
         BindButton(typeof(Buttons));
@@ -40,6 +41,8 @@ public class UI_MenuPopup : UI_Popup
         BindEvent(GetButton((int)Buttons.MailButton).gameObject, OnMailButtonClick);
         BindEvent(GetButton((int)Buttons.BackButton).gameObject, OnBackButtonClick);
         #endregion
+
+        return true;
     }
 
     private void OnSoundEffectButtonClick()

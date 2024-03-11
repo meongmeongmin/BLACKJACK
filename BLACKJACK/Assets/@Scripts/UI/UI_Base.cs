@@ -10,10 +10,20 @@ using UnityEngine.UI;
 public abstract class UI_Base : MonoBehaviour
 {
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
+    protected bool _init = false;
 
-    public virtual void Init()
+    private void Start()
     {
+        Init();
+    }
 
+    public virtual bool Init()
+    {
+        if (_init)
+            return false;
+
+        _init = true;
+        return true;
     }
 
     protected void Bind<T>(Type type) where T : UnityEngine.Object

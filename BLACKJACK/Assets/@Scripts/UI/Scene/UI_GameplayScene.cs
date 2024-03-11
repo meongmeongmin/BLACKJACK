@@ -80,14 +80,15 @@ public class UI_GameplayScene : UI_Scene
 
     private void Start()
     {
-        Debug.Log(MethodBase.GetCurrentMethod().Name);
+        Debug.Log($"Test: {MethodBase.GetCurrentMethod().Name}");
         Init();
         Refresh();
     }
 
-    public override void Init()
+    public override bool Init()
     {
-        base.Init();
+        if (base.Init() == false)
+            return false;
 
         _player = new PlayerController();
         _dealer = new DealerInfo();
@@ -132,6 +133,8 @@ public class UI_GameplayScene : UI_Scene
         GetImage((int)Images.ScoreImage_3).gameObject.SetActive(false);
         GetImage((int)Images.ScoreImage_4).gameObject.SetActive(false);
         GetImage((int)Images.ScoreImage_5).gameObject.SetActive(false);
+
+        return true;
     }
 
     private void Refresh()
@@ -150,6 +153,7 @@ public class UI_GameplayScene : UI_Scene
         GetText((int)Texts.ScoreText_3).text = _player.PlayerInfo.CardDecks[2].Score.ToString();
         GetText((int)Texts.ScoreText_4).text = _player.PlayerInfo.CardDecks[3].Score.ToString();
         GetText((int)Texts.ScoreText_5).text = _player.PlayerInfo.CardDecks[4].Score.ToString();
+        GetText((int)Texts.DealerScoreText).text = _dealer.Score.ToString();
         // Chip ¹öÆ°
         GetButton((int)Buttons.Chip10Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip10;
         GetButton((int)Buttons.Chip50Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip50;
