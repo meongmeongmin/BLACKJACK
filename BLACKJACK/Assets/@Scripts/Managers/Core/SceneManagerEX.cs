@@ -12,9 +12,11 @@ public class SceneManagerEX
         switch (CurrentScene.SceneType)
         {
             case Define.Scene.HomeScene:
+                Managers.Clear();
                 SceneManager.LoadScene(GetSceneName(type));
                 break;
             case Define.Scene.GameplayScene:
+                Managers.Clear();
                 SceneManager.LoadScene(GetSceneName(type));
                 break;
         }
@@ -25,5 +27,10 @@ public class SceneManagerEX
         // string name = type.ToString();
         string name = System.Enum.GetName(typeof(Define.Scene), type);
         return name;
+    }
+
+    public void Clear()
+    {
+        CurrentScene.Clear();
     }
 }

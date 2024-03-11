@@ -17,5 +17,5 @@ public abstract class BaseScene : MonoBehaviour
 
     }
 
-    protected abstract void Clear();
+    public abstract void Clear();
 }

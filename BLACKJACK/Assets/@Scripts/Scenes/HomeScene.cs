@@ -11,7 +11,7 @@ public class HomeScene : BaseScene
         SceneType = Define.Scene.HomeScene;
     }
 
-    protected override void Clear()
+    public override void Clear()
     {
 
     }

@@ -80,7 +80,7 @@ public class UI_GameplayScene : UI_Scene
 
     public override bool Init()
     {
-        if (base.Init() == false)
+        if (!base.Init())
             return false;
 
         _player = new PlayerController();

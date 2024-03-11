@@ -12,7 +12,7 @@ public class GameplayScene : BaseScene
         Managers.UI.ShowSceneUI<UI_GameplayScene>();
     }
 
-    protected override void Clear()
+    public override void Clear()
     {
 
     }

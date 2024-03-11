@@ -18,7 +18,7 @@ public class UI_HomeScene : UI_Scene
 
     public override bool Init()
     {
-        if (base.Init() == false)
+        if (!base.Init())
             return false;
 
         #region ¹ÙÀÎµù

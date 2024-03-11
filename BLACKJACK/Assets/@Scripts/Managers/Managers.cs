@@ -41,4 +41,10 @@ public class Managers : MonoBehaviour
             s_instance = go.GetComponent<Managers>();
         }
     }
+
+    public static void Clear()
+    {
+        UI.Clear();
+        Scene.Clear();
+    }
 }
