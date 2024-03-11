@@ -1197,7 +1197,7 @@ GameObject:
   - component: {fileID: 8786228462727099881}
   - component: {fileID: 6034737853601002369}
   - component: {fileID: 3620048742488620469}
-  - component: {fileID: 5172490157821265761}
+  - component: {fileID: 4122677561459434456}
   m_Layer: 5
   m_Name: UI_MenuPopup
   m_TagString: Untagged
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5172490157821265761
+--- !u!114 &4122677561459434456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

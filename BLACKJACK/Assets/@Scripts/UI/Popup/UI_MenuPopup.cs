@@ -21,11 +21,6 @@ public class UI_MenuPopup : UI_Popup
     }
     #endregion
 
-    private void Start()
-    {
-        Init();
-    }
-
     public override bool Init()
     {
         if (base.Init() == false)
