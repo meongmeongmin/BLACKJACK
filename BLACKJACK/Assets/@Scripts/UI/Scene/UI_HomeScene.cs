@@ -16,11 +16,6 @@ public class UI_HomeScene : UI_Scene
 
     bool isPreload = false;
 
-    private void Start()
-    {
-        Init();
-    }
-
     public override bool Init()
     {
         if (base.Init() == false)

@@ -78,13 +78,6 @@ public class UI_GameplayScene : UI_Scene
     private PlayerController _player;
     private DealerInfo _dealer;
 
-    private void Start()
-    {
-        Debug.Log($"Test: {MethodBase.GetCurrentMethod().Name}");
-        Init();
-        Refresh();
-    }
-
     public override bool Init()
     {
         if (base.Init() == false)
@@ -133,6 +126,8 @@ public class UI_GameplayScene : UI_Scene
         GetImage((int)Images.ScoreImage_3).gameObject.SetActive(false);
         GetImage((int)Images.ScoreImage_4).gameObject.SetActive(false);
         GetImage((int)Images.ScoreImage_5).gameObject.SetActive(false);
+
+        Refresh();
 
         return true;
     }
