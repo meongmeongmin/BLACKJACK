@@ -15,6 +15,17 @@ public class ResourceManager
         if (_resources.TryGetValue(key, out Object resource))
             return resource as T;
 
+        //스프라이트 로드할때 항상 .sprite가 붙어 있어야하는데 데이터시트에 .sprite가 붙어있지 않은 데이터가 많음
+        //임시로 붙임 -드래곤
+        if (typeof(T) == typeof(Sprite))
+        {
+            key = $"{key}.sprite";
+            if (_resources.TryGetValue(key, out Object temp))
+            {
+                return temp as T;
+            }
+        }
+
         return null;
     }
 
@@ -49,17 +60,22 @@ public class ResourceManager
     #region Addressable
     public void LoadAsync<T>(string key, Action<T> callback = null) where T : UnityEngine.Object
     {
-        // 캐시 확인
-        if (_resources.TryGetValue(key, out Object resource))
-        {
-            callback?.Invoke(resource as T);
-            return;
-        }
+        //스프라이트인 경우 하위객체의 이름으로 로드해야 한다.
+        string loadKey = key;
+        if (key.Contains(".sprite"))
+            loadKey = $"{key}[{key.Replace(".sprite", "")}]";
 
         // 리소스 비동기 로딩 시작
         var asyncOperation = Addressables.LoadAssetAsync<T>(key);
         asyncOperation.Completed += (op) =>
         {
+            // 캐시 확인
+            if (_resources.TryGetValue(key, out Object resource))
+            {
+                callback?.Invoke(resource as T);
+                return;
+            }
+            
             _resources.Add(key, op.Result);
             callback?.Invoke(op.Result);
         };
@@ -75,11 +91,22 @@ public class ResourceManager
 
             foreach (var result in op.Result) 
             {
-                LoadAsync<T>(result.PrimaryKey, (obj) =>
+                if (result.PrimaryKey.Contains(".sprite"))
                 {
-                    loadCount++;
-                    callback?.Invoke(result.PrimaryKey, loadCount, totalCount);
-                });
+                    LoadAsync<Sprite>(result.PrimaryKey, (obj) =>
+                    {
+                        loadCount++;
+                        callback?.Invoke(result.PrimaryKey, loadCount, totalCount);
+                    });
+                }
+                else
+                {
+                    LoadAsync<T>(result.PrimaryKey, (obj) =>
+                    {
+                        loadCount++;
+                        callback?.Invoke(result.PrimaryKey, loadCount, totalCount);
+                    });
+                }
             }
         };
     }
