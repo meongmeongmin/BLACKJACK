@@ -17,7 +17,7 @@ public class CardDeck
     public int Score;
 }
 
-public class CardManager
+public class CardController
 {
     public List<Card> AllCard = new List<Card>();
 

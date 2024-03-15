@@ -10,9 +10,7 @@ public class Managers : MonoBehaviour
 
     #region Contents
     GameManager _game = new GameManager();
-    CardManager _card = new CardManager();
     public static GameManager Game { get { return Instance?._game; } }
-    public static CardManager Card { get { return Instance?._card; } }
     #endregion
 
     #region Core
