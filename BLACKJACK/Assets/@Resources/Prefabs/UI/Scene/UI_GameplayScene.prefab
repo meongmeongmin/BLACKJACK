@@ -4717,7 +4717,7 @@ GameObject:
   - component: {fileID: 8285912223520277313}
   - component: {fileID: 6878367200526244956}
   - component: {fileID: 2406054382271152889}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: PlayerCardDeckToggleGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
