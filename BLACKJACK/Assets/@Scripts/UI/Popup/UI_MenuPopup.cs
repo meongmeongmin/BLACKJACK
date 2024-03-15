@@ -57,7 +57,7 @@ public class UI_MenuPopup : UI_Popup
 
     private void OnMailButtonClick()
     {
-
+    
     }
 
     private void OnBackButtonClick()

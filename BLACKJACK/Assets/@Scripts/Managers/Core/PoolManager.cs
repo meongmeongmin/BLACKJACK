@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.Pool;
+using static UnityEngine.UI.Image;
 
 class Pool
 {
@@ -79,12 +80,17 @@ public class PoolManager
         _pools.Add(prefab.name, pool);
     }
 
-    public bool Push(GameObject prefab)
+    public bool Push(GameObject original)
     {
-        if (!_pools.ContainsKey(prefab.name))
+        if (!_pools.ContainsKey(original.name))
             return false;
 
-        _pools[prefab.name].Push(prefab);
+        _pools[original.name].Push(original);
         return true;
+    }
+
+    public void Clear()
+    {
+        _pools.Clear();
     }
 }
