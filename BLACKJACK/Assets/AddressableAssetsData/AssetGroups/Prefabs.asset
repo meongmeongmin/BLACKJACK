@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: Prefabs
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: Prefabs
   m_Data:
     m_SerializedData: []
   m_GUID: 49c2939420a5a4d4381af9b404489bc5
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 53d9fbad178080641bb5bb6f0b16e4a0
+    m_Address: PlayerCard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 85d573e189eab2848a237c109c496751, type: 2}
   m_SchemaSet:
