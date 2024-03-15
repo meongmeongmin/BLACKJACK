@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 457c98893abe8d04fa2ba857f6cb86c1
+    m_Address: DealerCard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 85d573e189eab2848a237c109c496751, type: 2}
   m_SchemaSet:
