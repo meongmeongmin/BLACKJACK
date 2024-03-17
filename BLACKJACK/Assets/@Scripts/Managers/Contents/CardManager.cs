@@ -35,8 +35,10 @@ public class CardManager
         {
             for (int i = 1; i < 14; i++)
             {
-                cards[i - 1].Suit = suit;
-                cards[i].Number = i;
+                Card card = new Card();
+                card.Suit = suit;
+                card.Number = i;
+                cards.Add(card);
             }
         }
 
