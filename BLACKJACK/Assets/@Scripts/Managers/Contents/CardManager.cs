@@ -20,13 +20,15 @@ public class CardDeck
 public class CardManager
 {
     public List<Card> AllCard = new List<Card>();
+    private bool _init = false;
 
     public void Init()
     {
-        GenerateAllCard();
+        _init = true;
+        AllCard = SuffleAllCard(GenerateAllCard());
     }
 
-    public void GenerateAllCard()
+    public List<Card> GenerateAllCard()
     {
         // 카드 생성
         string[] suits = Enum.GetNames(typeof(Define.CardSuit));
@@ -42,7 +44,7 @@ public class CardManager
             }
         }
 
-        AllCard = SuffleAllCard(cards);
+        return cards;
     }
 
     public List<Card> SuffleAllCard(List<Card> cards)
@@ -63,9 +65,14 @@ public class CardManager
 
     public Card CallCard()
     {
-        Card card = AllCard[0];
-        AllCard.RemoveAt(0);
+        if (_init) 
+        {
+            Card card = AllCard[0];
+            AllCard.RemoveAt(0);
 
-        return card;
+            return card;
+        }
+        
+        return null;
     }
 }
