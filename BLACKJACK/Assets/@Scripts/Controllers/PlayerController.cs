@@ -22,18 +22,20 @@ public class DealerInfo
 public class PlayerController
 {
     public PlayerInfo PlayerInfo = new PlayerInfo();
-    public DealerInfo DealerInfo;
+    public DealerInfo DealerInfo = new DealerInfo();
     private int _currentCardDeckIdx;
 
     public void Init()
     {
         PlayerInfo.Gold = 100000;
-        PlayerInfo.CardDecks = new List<CardDeck>();
-        PlayerInfo.CardDecks.Add(new CardDeck());
-        PlayerInfo.CardDecks.Add(new CardDeck());
-        PlayerInfo.CardDecks.Add(new CardDeck());
-        PlayerInfo.CardDecks.Add(new CardDeck());
-        PlayerInfo.CardDecks.Add(new CardDeck());
+        PlayerInfo.CardDecks = new List<CardDeck>()
+        {
+            new CardDeck(),
+            new CardDeck(),
+            new CardDeck(),
+            new CardDeck(),
+            new CardDeck(),
+        };
 
         DealerInfo.Cards = new List<Card>();
     }
