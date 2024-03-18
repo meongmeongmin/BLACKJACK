@@ -22,6 +22,7 @@ public class DealerInfo
 public class PlayerController
 {
     public PlayerInfo PlayerInfo = new PlayerInfo();
+    public DealerInfo DealerInfo;
     private int _currentCardDeckIdx;
 
     public void Init()
@@ -33,6 +34,8 @@ public class PlayerController
         PlayerInfo.CardDecks.Add(new CardDeck());
         PlayerInfo.CardDecks.Add(new CardDeck());
         PlayerInfo.CardDecks.Add(new CardDeck());
+
+        DealerInfo.Cards = new List<Card>();
     }
 
     public void SelectCardDeck(int cardDeckIdx)
@@ -60,24 +63,42 @@ public class PlayerController
         }
     }
 
+    public void Play()
+    {
+        Managers.Card.Init();
+        // 딜러 카드 분배
+        DealerInfo.Cards.Add(Managers.Card.CallCard());
+        DealerInfo.Cards.Add(Managers.Card.CallCard());
+
+        // 플레이어 카드 분배
+        foreach (var deck in PlayerInfo.CardDecks) 
+        {
+            if (deck.Bet > 0)
+            {
+                deck.Cards.Add(Managers.Card.CallCard());
+                deck.Cards.Add(Managers.Card.CallCard());
+            }
+        }
+    }
+
     public void Hit()
     {
-
+        
     }
 
     public void Stand()
     {
-
+        
     }
 
     public void DoubleDown()
     {
-
+        
     }
 
-    public void Split() 
+    public void Split()
     {
-
+        
     }
 
     public void Surrender()
