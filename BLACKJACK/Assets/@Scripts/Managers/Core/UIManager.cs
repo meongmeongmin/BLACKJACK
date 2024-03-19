@@ -112,6 +112,21 @@ public class UIManager
             ClosePopupUI();
     }
 
+    public T Spawn<T>(Vector3 position, string prefabName = "") where T : UI_Base
+    {
+        System.Type type = typeof(T);
+
+        if (type == typeof(UI_Card))
+        {
+            GameObject go = Managers.Resource.Instantiate("Card", pooling : true);
+            UI_Card uc = go.GetOrAddComponent<UI_Card>();
+            go.transform.position = position;
+            return uc as T;
+        }
+
+        return null;
+    }
+
     public void Clear()
     {
         CloseAllPopupUI();
