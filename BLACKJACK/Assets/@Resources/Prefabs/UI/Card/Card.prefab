@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2631302625898775873}
   - component: {fileID: 4718157859080352657}
   - component: {fileID: 8961990807500957269}
-  m_Layer: 9
-  m_Name: DealerCard
+  m_Layer: 8
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
