@@ -16,17 +16,39 @@ public class PlayerInfo
 public class DealerInfo
 {
     public List<Card> Cards;
-    public int Score;
+    public int Score
+    {
+        get
+        {
+            if (Cards == null)
+            {
+                Debug.Log("Dealer Cards null");
+                return 0;
+            }
+
+            int score = 0;
+            foreach (var card in Cards)
+            {
+                if (card != null)
+                    score += card.Number;
+            }
+
+            return score;
+        }
+    }
 }
 
 public class PlayerController
 {
     public PlayerInfo PlayerInfo = new PlayerInfo();
     public DealerInfo DealerInfo = new DealerInfo();
+    private CardManager _card = new CardManager();
     private int _currentCardDeckIdx;
 
     public void Init()
     {
+        _card = Managers.Card;
+
         PlayerInfo.Gold = 100000;
         PlayerInfo.CardDecks = new List<CardDeck>()
         {
@@ -69,18 +91,45 @@ public class PlayerController
     {
         Managers.Card.Init();
         // 딜러 카드 분배
-        DealerInfo.Cards.Add(Managers.Card.CallCard());
-        DealerInfo.Cards.Add(Managers.Card.CallCard());
+        DealerInfo.Cards.Add(_card.CallCard());
+        DealerInfo.Cards.Add(_card.CallCard());
 
         // 플레이어 카드 분배
         foreach (var deck in PlayerInfo.CardDecks) 
         {
             if (deck.Bet > 0)
             {
-                deck.Cards.Add(Managers.Card.CallCard());
-                deck.Cards.Add(Managers.Card.CallCard());
+                deck.Cards.Add(_card.CallCard());
+                deck.Cards.Add(_card.CallCard());
             }
         }
+
+        #region CardData Check
+        foreach (var card in DealerInfo.Cards) 
+        {
+            if (card != null)
+                Debug.Log($"Dealer : {card.Suit}{card.Number}");
+            else
+                break;
+        }
+
+        int idx = 0;
+        foreach (var deck in PlayerInfo.CardDecks)
+        {
+            if (deck == null)
+                continue;
+
+            foreach (var card in PlayerInfo.CardDecks[idx].Cards)
+            {
+                if (card != null)
+                    Debug.Log($"Player : {card.Suit}{card.Number}");
+                else
+                    break;
+            }
+
+            idx++;
+        }
+        #endregion
     }
 
     public void Hit()

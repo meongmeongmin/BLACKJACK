@@ -70,7 +70,6 @@ public class UI_GameplayScene : UI_Scene
     #endregion
 
     private PlayerController _player;
-    private DealerInfo _dealer;
 
     public override bool Init()
     {
@@ -78,7 +77,6 @@ public class UI_GameplayScene : UI_Scene
             return false;
 
         _player = new PlayerController();
-        _dealer = new DealerInfo();
         _player.Init();
 
         #region 바인딩
@@ -136,7 +134,7 @@ public class UI_GameplayScene : UI_Scene
             GetText((int)Texts.ScoreText_1 + i).text = _player.PlayerInfo.CardDecks[i].Score.ToString();
         }
         // Dealer 점수 업데이트
-        GetText((int)Texts.DealerScoreText).text = _dealer.Score.ToString();
+        GetText((int)Texts.DealerScoreText).text = _player.DealerInfo.Score.ToString();
         // 각 Chip 버튼의 활성 상태를 업데이트
         GetButton((int)Buttons.Chip10Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip10;
         GetButton((int)Buttons.Chip50Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip50;
@@ -185,6 +183,7 @@ public class UI_GameplayScene : UI_Scene
     {
         if (_player.PlayerInfo.TotalBet > 0)
         {
+            // 수정 필요
             GetObejct((int)GameObjects.SetBetting).SetActive(false);
             GetObejct((int)GameObjects.SetPlaying).gameObject.SetActive(true);
             // 플레이어의 모든 카드 덱을 순회하며 해당 인덱스에 맞는 토글, BetImage, ScoreImage의 활성화 상태 설정

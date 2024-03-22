@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,7 +15,26 @@ public class CardDeck
 {
     public List<Card> Cards = new List<Card>();
     public float Bet;
-    public int Score;
+    public int Score
+    {
+        get
+        {
+            if (Cards == null)
+            {
+                Debug.Log("Cards null");
+                return 0;
+            }
+
+            int score = 0;
+            foreach (var card in Cards)
+            {
+                if (card != null)
+                    score += card.Number;
+            }
+
+            return score;
+        }
+    }
 }
 
 public class CardManager
