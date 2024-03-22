@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Card
 {
-    public string Suit;
+    public Define.CardSuit Suit;
     public int Number;
 }
 
@@ -51,9 +51,8 @@ public class CardManager
     public List<Card> GenerateAllCard()
     {
         // 카드 생성
-        string[] suits = Enum.GetNames(typeof(Define.CardSuit));
         List<Card> cards = new List<Card>();
-        foreach (string suit in suits)
+        foreach (Define.CardSuit suit in Enum.GetValues(typeof(Define.CardSuit)))
         {
             for (int i = 1; i < 14; i++)
             {
