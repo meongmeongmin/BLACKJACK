@@ -69,15 +69,15 @@ public class UI_GameplayScene : UI_Scene
     }
     #endregion
 
-    private PlayerController _player;
+    private PlayController _play;
 
     public override bool Init()
     {
         if (!base.Init())
             return false;
 
-        _player = new PlayerController();
-        _player.Init();
+        _play = new PlayController();
+        _play.Init();
 
         #region 바인딩
         BindObejct(typeof(GameObjects));
@@ -120,31 +120,31 @@ public class UI_GameplayScene : UI_Scene
     private void Refresh()
     {
         // 플레이어의 골드 정보 업데이트
-        GetText((int)Texts.GoldText).text = _player.PlayerInfo.Gold.ToString();
+        GetText((int)Texts.GoldText).text = _play.PlayerInfo.Gold.ToString();
         // 플레이어의 모든 카드 덱을 순회하며 각 덱의 배팅 금액과 점수를 업데이트
-        for (int i = 0; i < _player.PlayerInfo.CardDecks.Count; i++) 
+        for (int i = 0; i < _play.PlayerInfo.CardDecks.Count; i++) 
         {
-            GetText((int)Texts.BetText_1 + i).text = _player.PlayerInfo.CardDecks[i].Bet.ToString();
-            GetText((int)Texts.ScoreText_1 + i).text = _player.PlayerInfo.CardDecks[i].Score.ToString();
+            GetText((int)Texts.BetText_1 + i).text = _play.PlayerInfo.CardDecks[i].Bet.ToString();
+            GetText((int)Texts.ScoreText_1 + i).text = _play.PlayerInfo.CardDecks[i].Score.ToString();
         }
         // Dealer 점수 업데이트
-        GetText((int)Texts.DealerScoreText).text = _player.DealerInfo.Score.ToString();
+        GetText((int)Texts.DealerScoreText).text = _play.DealerInfo.Score.ToString();
         
         // 수정 필요, 배팅 상태일 때만 업데이트 하도록
         // 각 Chip 버튼의 활성 상태를 업데이트
-        GetButton((int)Buttons.Chip10Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip10;
-        GetButton((int)Buttons.Chip50Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip50;
-        GetButton((int)Buttons.Chip100Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip100;
-        GetButton((int)Buttons.Chip500Button).interactable = _player.PlayerInfo.Gold >= (int)Chip.Chip500;
+        GetButton((int)Buttons.Chip10Button).interactable = _play.PlayerInfo.Gold >= (int)Chip.Chip10;
+        GetButton((int)Buttons.Chip50Button).interactable = _play.PlayerInfo.Gold >= (int)Chip.Chip50;
+        GetButton((int)Buttons.Chip100Button).interactable = _play.PlayerInfo.Gold >= (int)Chip.Chip100;
+        GetButton((int)Buttons.Chip500Button).interactable = _play.PlayerInfo.Gold >= (int)Chip.Chip500;
         // Play 버튼의 활성 상태를 업데이트
-        GetButton((int)Buttons.PlayButton).interactable = _player.PlayerInfo.TotalBet > 0;
+        GetButton((int)Buttons.PlayButton).interactable = _play.PlayerInfo.TotalBet > 0;
     }
 
     private void SetBetting()
     {
         GetObejct((int)GameObjects.SetBetting).gameObject.SetActive(true);
         GetObejct((int)GameObjects.SetPlaying).gameObject.SetActive(false);
-        for (int i = 0; i < _player.PlayerInfo.CardDecks.Count; i++)
+        for (int i = 0; i < _play.PlayerInfo.CardDecks.Count; i++)
         {
             GetText((int)Texts.ScoreText_1 + i).transform.parent.gameObject.SetActive(false);
         }
@@ -157,10 +157,10 @@ public class UI_GameplayScene : UI_Scene
 
         // 플레이어의 모든 카드 덱을 순회
         bool firstBetDeckFound = false;
-        for (int i = 0; i < _player.PlayerInfo.CardDecks.Count; i++)
+        for (int i = 0; i < _play.PlayerInfo.CardDecks.Count; i++)
         {
             // BetImage, ScoreImage의 활성화 상태 설정
-            bool isBet = _player.PlayerInfo.CardDecks[i].Bet > 0;
+            bool isBet = _play.PlayerInfo.CardDecks[i].Bet > 0;
             GetText((int)Texts.BetText_1 + i).transform.parent.gameObject.SetActive(isBet);
             GetText((int)Texts.ScoreText_1 + i).transform.parent.gameObject.SetActive(isBet);
 
@@ -168,6 +168,7 @@ public class UI_GameplayScene : UI_Scene
             if (!firstBetDeckFound && isBet) 
             {
                 firstBetDeckFound = true;
+                OnCardDeckToggleClick(Toggles.CardDeckToggle_1 + i);
                 GetToggle((int)Toggles.CardDeckToggle_1 + i).interactable = true;
                 GetToggle((int)Toggles.CardDeckToggle_1 + i).isOn = true;
             }
@@ -195,19 +196,19 @@ public class UI_GameplayScene : UI_Scene
         switch (chip)
         {
             case Chip.None:
-                _player.Bet(chip);
+                _play.Bet(chip);
                 break;
             case Chip.Chip10:
-                _player.Bet(chip);
+                _play.Bet(chip);
                 break;
             case Chip.Chip50:
-                _player.Bet(chip);
+                _play.Bet(chip);
                 break;
             case Chip.Chip100:
-                _player.Bet(chip);
+                _play.Bet(chip);
                 break;
             case Chip.Chip500:
-                _player.Bet(chip);
+                _play.Bet(chip);
                 break;
         }
 
@@ -216,10 +217,10 @@ public class UI_GameplayScene : UI_Scene
 
     private void OnClickPlayButton()
     {
-        if (_player.PlayerInfo.TotalBet > 0)
+        if (_play.PlayerInfo.TotalBet > 0)
         {
             SetPlay();
-            _player.Play();
+            _play.Play();
         }
 
         Refresh();
@@ -227,27 +228,27 @@ public class UI_GameplayScene : UI_Scene
 
     private void OnClickHitButton()
     {
-        _player.Hit();
+        _play.Hit();
     }
 
     private void OnClickStandButton()
     {
-        _player.Stand();
+        _play.Stand();
     }
 
     private void OnClickDoubledownButton()
     {
-        _player.DoubleDown();
+        _play.DoubleDown();
     }
 
     private void OnClickSplitButton()
     {
-        _player.Split();
+        _play.Split();
     }
 
     private void OnClickSurrenderButton()
     {
-        _player.Surrender();
+        _play.Surrender();
     }
     #endregion
 
@@ -257,19 +258,19 @@ public class UI_GameplayScene : UI_Scene
         switch (toggle)
         {
             case Toggles.CardDeckToggle_1:
-                _player.SelectCardDeck(0);
+                _play.SelectCardDeck(0);
                 break;
             case Toggles.CardDeckToggle_2:
-                _player.SelectCardDeck(1);
+                _play.SelectCardDeck(1);
                 break;
             case Toggles.CardDeckToggle_3:
-                _player.SelectCardDeck(2);
+                _play.SelectCardDeck(2);
                 break;
             case Toggles.CardDeckToggle_4:
-                _player.SelectCardDeck(3);
+                _play.SelectCardDeck(3);
                 break;
             case Toggles.CardDeckToggle_5:
-                _player.SelectCardDeck(4);
+                _play.SelectCardDeck(4);
                 break;
         }
     }

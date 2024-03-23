@@ -38,7 +38,7 @@ public class DealerInfo
     }
 }
 
-public class PlayerController
+public class PlayController
 {
     public PlayerInfo PlayerInfo = new PlayerInfo();
     public DealerInfo DealerInfo = new DealerInfo();

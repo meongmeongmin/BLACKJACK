@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class GameManager
 {
-    public PlayerController Player { get; set; }
+    public PlayController Player { get; set; }
     public DealerInfo Dealer { get; set; }
 }
