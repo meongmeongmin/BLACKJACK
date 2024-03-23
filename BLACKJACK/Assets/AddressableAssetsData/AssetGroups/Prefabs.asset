@@ -18,13 +18,7 @@ MonoBehaviour:
   m_GUID: 49c2939420a5a4d4381af9b404489bc5
   m_SerializeEntries:
   - m_GUID: 53d9fbad178080641bb5bb6f0b16e4a0
-    m_Address: PlayerCard
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - PreLoad
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 457c98893abe8d04fa2ba857f6cb86c1
-    m_Address: DealerCard
+    m_Address: Card
     m_ReadOnly: 0
     m_SerializedLabels:
     - PreLoad
